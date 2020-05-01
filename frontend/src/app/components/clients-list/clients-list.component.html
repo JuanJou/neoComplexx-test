@@ -1,0 +1,12 @@
+<ul class="clients-list">
+  <li class="header list-entry">
+    <h1>Nombre</h1>
+    <h1>Apellido</h1>
+    <h1>Direccion</h1>
+  </li>
+  <li *ngFor="let client of clientsList" class="client list-entry">
+    <h1>{{ client.firstName }}</h1>
+    <h1>{{ client.lastName }}</h1>
+    <h1>{{ client.address }}</h1>
+  </li>
+</ul>

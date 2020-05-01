@@ -1,4 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
+import { ClientsListResolver } from './services/clients-list.resolver'; 
 import { environment } from '../environments/environment'; 
 import { BaseUrlInterceptor } from './interceptors/baseUrlInterceptor'; 
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http'; 
@@ -9,12 +10,14 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ClientsFormComponent } from './components/clients-form/clients-form.component';
 import {ClientsService} from './services/clients.service';
+import { ClientsListComponent } from './components/clients-list/clients-list.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    ClientsFormComponent
+    ClientsFormComponent,
+    ClientsListComponent
   ],
   imports: [
     BrowserModule,
@@ -23,7 +26,8 @@ import {ClientsService} from './services/clients.service';
     HttpClientModule
 
   ],
-  providers: [ClientsService,
+  providers: [
+    ClientsService,
     {
       provide: HTTP_INTERCEPTORS,
       useClass: BaseUrlInterceptor,
@@ -32,7 +36,7 @@ import {ClientsService} from './services/clients.service';
     {
       provide: 'BASE_API_URL',
       useValue: environment.baseUrl
-    }
+    },
   ],
   bootstrap: [AppComponent]
 })

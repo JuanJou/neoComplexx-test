@@ -1,0 +1,35 @@
+.clients-list {
+  display: flex;
+  flex-direction: column;
+  margin: auto;
+  align-items: center;
+
+}
+
+.client {
+}
+
+.header {
+  background: white;
+  font-style: italic;
+
+
+}
+
+.list-entry {
+  display: flex;
+  flex-direction: row;
+  justify-content: stretch;
+  width: 50%;
+
+}
+
+h1 {
+  font-size: 1.1rem;
+  border-width: 2px;
+  border-color: black;
+  border-style: solid;
+  flex-basis: 33%;
+  margin: 0;
+  padding: 10% ;
+}
