@@ -1,0 +1,16 @@
+.fields-container {
+  display: flex;
+  flex-direction: column;
+  width: 20%;
+  margin: auto;
+  height: 20%;
+}
+
+.fields-container input {
+  margin-bottom: 10%;
+  border-color: grey;
+}
+.fields-container label {
+  text-align: center;
+
+}

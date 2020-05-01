@@ -1,0 +1,11 @@
+<form [formGroup]="clientForm" class="fields-container" (ngSubmit)="onSubmit()">
+  <label for="firstName">Nombre</label>
+  <input id="firstName" type="text" formControlName="firstName" />
+  <label for="lastName">Apellido</label>
+  <input id="lastName" type="text" formControlName="lastName" />
+  <label for="address">Direccion</label>
+  <input id="address" type="text" formControlName="address" />
+  <button type="submit" [disabled]="!clientForm.valid">
+    Enviar
+  </button>
+</form>
