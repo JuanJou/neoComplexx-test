@@ -19,11 +19,11 @@ export class ClientsService {
     return this.httpClient.post("client", client).toPromise();
   }
 
-  updateOldClient(client: Client) {
-    return this.httpClient.put("client", { body: client }).toPromise();
+  updateOldClient(client: Client): Promise<Client[]> {
+    return this.httpClient.put<Client[]>("client", client ).toPromise();
   }
 
-  deleteClient(id: number) {
-    return this.httpClient.delete(`client/${id}`).toPromise();
+  deleteClient(id: number): Promise<Client[]>{
+    return this.httpClient.delete<Client[]>(`client/${id}`).toPromise();
   }
 }

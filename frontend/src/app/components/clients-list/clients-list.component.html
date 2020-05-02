@@ -1,12 +1,19 @@
-<ul class="clients-list">
-  <li class="header list-entry">
-    <h1>Nombre</h1>
-    <h1>Apellido</h1>
-    <h1>Direccion</h1>
-  </li>
-  <li *ngFor="let client of clientsList" class="client list-entry">
-    <h1>{{ client.firstName }}</h1>
-    <h1>{{ client.lastName }}</h1>
-    <h1>{{ client.address }}</h1>
-  </li>
-</ul>
+<table class="clients-list">
+  <tr class="header list-entry">
+    <th>Nombre</th>
+    <th>Apellido</th>
+    <th>Direccion</th>
+    <th>Acciones</th>
+  </tr>
+  <tr *ngFor="let client of clientsList; let i = index" class="client list-entry">
+    <td>{{ client.firstName }}</td>
+    <td>{{ client.lastName }}</td>
+    <td>{{ client.address }}</td>
+    <td>
+      <div class="icons-container">
+        <i class="fa fa-trash" (click)="deleteEntry(i)"> </i>
+        <i class="fa fa-edit" (click)="editEntry(i)"> </i>
+      </div>
+    </td>
+  </tr>
+</table>

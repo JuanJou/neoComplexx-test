@@ -1,35 +1,49 @@
 .clients-list {
-  display: flex;
-  flex-direction: column;
   margin: auto;
-  align-items: center;
-
+  width: 80%;
+  background-color: #b5b7b7;
 }
 
 .client {
 }
 
 .header {
-  background: white;
-  font-style: italic;
-
-
 }
 
 .list-entry {
   display: flex;
   flex-direction: row;
-  justify-content: stretch;
-  width: 50%;
+  justify-content: space-between;
+  width: 100%;
+  border-bottom: 1px solid black;
+  height: 8vh;
 
 }
 
-h1 {
-  font-size: 1.1rem;
-  border-width: 2px;
-  border-color: black;
-  border-style: solid;
-  flex-basis: 33%;
-  margin: 0;
-  padding: 10% ;
+.list-entry:not(:first-child) {
+}
+
+.list-entry td,
+.list-entry th {
+  flex-basis: 25%;
+  text-align: center;
+  vertical-align:middle;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+}
+
+.icons-container {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+i {
+  font-size: 1.4rem;
+  cursor: pointer;
+
 }
