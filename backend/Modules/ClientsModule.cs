@@ -3,8 +3,6 @@ using backend.models;
 using backend.Services;
 using Nancy;
 using Nancy.Extensions;
-using Nancy.Json;
-using Nancy.ModelBinding;
 using Newtonsoft.Json;
 
 public class ClientModule : NancyModule
@@ -24,7 +22,7 @@ public class ClientModule : NancyModule
 
     private dynamic getAllClients(dynamic parameters)
     {
-        return clientService.getAllClients();
+        return this.clientService.getAllClients();
     }
     private dynamic createClient(dynamic parameters)
     {
@@ -34,7 +32,6 @@ public class ClientModule : NancyModule
     }
     private dynamic getClient(dynamic parameters)
     {
-        Console.WriteLine("ID Module: " + parameters);
         return this.clientService.getClientById(parameters.id);
     }
     private dynamic deleteClient(dynamic parameters)
