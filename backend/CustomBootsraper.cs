@@ -14,6 +14,7 @@ public class CustomBootstrapper : DefaultNancyBootstrapper
     public override void Configure(INancyEnvironment environment)
     {
         environment.Diagnostics(true, "password");
+        environment.Tracing(enabled: false, displayErrorTraces: true);
         base.Configure(environment);
     }
 
@@ -28,9 +29,11 @@ public class CustomBootstrapper : DefaultNancyBootstrapper
     {
         pipelines.AfterRequest.AddItemToEndOfPipeline((ctx) =>
         {
-            ctx.Response.WithHeader("Access-Control-Allow-Origin", "http://localhost:4200")
-                            .WithHeader("Access-Control-Allow-Methods", "POST,GET,DELETE,PUT")
-                            .WithHeader("Access-Control-Allow-Headers", "Accept, Origin, Content-type");
+            ctx.Response.Headers.Add("Access-Control-Allow-Origin", "*");
+            ctx.Response.Headers.Add("Access-Control-Allow-Methods", "POST,GET,DELETE,PUT,OPTIONS");
+            ctx.Response.Headers.Add("Access-Control-Allow-Credentials", "true");
+            ctx.Response.Headers.Add("Access-Control-Allow-Headers", "Accept,Origin,Content-type");
+            ctx.Response.Headers.Add("Access-Control-Expose-Headers", "Accept,Origin,Content-type");
 
         });
 

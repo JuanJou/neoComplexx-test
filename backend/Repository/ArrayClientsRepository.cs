@@ -37,15 +37,21 @@ namespace backend.Repository
 
         public void removeClient(int id)
         {
-            this.listOfClients.RemoveAt(id);
+            this.listOfClients.RemoveAll(client =>
+            {
+                return client.id == id;
+            });
         }
 
         public Client updateClient(Client oldClient)
         {
             this.listOfClients.ForEach(client =>
             {
+                Console.WriteLine(oldClient.id + "OLD");
+                Console.WriteLine(client.id + "CL");
                 if (client.id == oldClient.id)
                 {
+                    Console.WriteLine("ENTRA");
                     client.firstName = oldClient.firstName;
                     client.lastName = oldClient.lastName;
                     client.address = oldClient.address;
