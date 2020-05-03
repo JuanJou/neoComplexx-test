@@ -11,8 +11,8 @@ export class ClientsService {
     return this.httpClient.get<Client>(`client/${id}`).toPromise();
   }
 
-  getAllClients() {
-    return this.httpClient.get<Client>(`client`).toPromise();
+  getAllClients(): Promise<Client[]>  {
+    return this.httpClient.get<Client[]>(`client`).toPromise();
   }
 
   saveNewClient(client: Client) {

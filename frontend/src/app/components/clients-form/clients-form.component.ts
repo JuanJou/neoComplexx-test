@@ -1,5 +1,5 @@
 import { Component, OnInit } from "@angular/core";
-import { Router } from '@angular/router'; 
+import { Router } from "@angular/router";
 import { Client } from "../../models/client";
 import { ClientsService } from "../../services/clients.service";
 import { FormBuilder, FormGroup, Validators } from "@angular/forms";
@@ -11,6 +11,7 @@ import { FormBuilder, FormGroup, Validators } from "@angular/forms";
 })
 export class ClientsFormComponent implements OnInit {
   clientForm: FormGroup = this.formBuilder.group({
+    id: [null],
     firstName: ["", Validators.required],
     lastName: ["", Validators.required],
     address: ["", Validators.required],
@@ -20,15 +21,17 @@ export class ClientsFormComponent implements OnInit {
     private formBuilder: FormBuilder,
     private clientService: ClientsService,
     private router: Router
-  ) {}
+  ) {
+    const currentState = this.router.getCurrentNavigation().extras.state;
+    if (currentState) this.clientForm.setValue(currentState.client);
+  }
 
   ngOnInit() {}
 
   async onSubmit() {
     let client: Client = new Client(this.clientForm.value);
-    const clients = await this.clientService.saveNewClient(client);
-    console.log(clients);
-    this.router.navigate([ 'clientsList' ]);
-
+    if (client.id) await this.clientService.updateOldClient(client);
+    else await this.clientService.saveNewClient(client);
+    this.router.navigate(["clientsList"]);
   }
 }

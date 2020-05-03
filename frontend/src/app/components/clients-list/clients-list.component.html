@@ -2,18 +2,16 @@
   <tr class="header list-entry">
     <th>Nombre</th>
     <th>Apellido</th>
-    <th>Direccion</th>
-    <th>Acciones</th>
+    <th>Dirección</th>
+    <th>Borrar/Editar</th>
   </tr>
-  <tr *ngFor="let client of clientsList; let i = index" class="client list-entry">
+  <tr *ngFor="let client of clientsList" class="client list-entry">
     <td>{{ client.firstName }}</td>
     <td>{{ client.lastName }}</td>
     <td>{{ client.address }}</td>
     <td>
-      <div class="icons-container">
-        <i class="fa fa-trash" (click)="deleteEntry(i)"> </i>
-        <i class="fa fa-edit" (click)="editEntry(i)"> </i>
-      </div>
+        <i class="fa fa-trash" (click)="deleteEntry(client)"> </i>
+        <i class="fa fa-edit" (click)="editEntry(client)"> </i>
     </td>
   </tr>
 </table>

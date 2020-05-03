@@ -1,13 +1,8 @@
 .clients-list {
   margin: auto;
   width: 80%;
-  background-color: #b5b7b7;
-}
-
-.client {
-}
-
-.header {
+  background-color: #e2d3bc;
+  font-size: 1.4rem;
 }
 
 .list-entry {
@@ -17,10 +12,6 @@
   width: 100%;
   border-bottom: 1px solid black;
   height: 8vh;
-
-}
-
-.list-entry:not(:first-child) {
 }
 
 .list-entry td,
@@ -30,8 +21,7 @@
   vertical-align:middle;
   display: flex;
   align-items: center;
-  justify-content: center;
-
+  justify-content: space-evenly;
 }
 
 .icons-container {
@@ -43,7 +33,5 @@
 }
 
 i {
-  font-size: 1.4rem;
   cursor: pointer;
-
 }
