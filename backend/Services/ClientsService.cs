@@ -7,7 +7,7 @@ namespace backend.Services
     {
         ICollection<Client> getAllClients();
         Client getClientById(int id);
-        Client addNewClient(Client newClient);
+        void addNewClient(Client newClient);
         void removeClient(int id);
         void modifyClient(Client oldClient);
     }

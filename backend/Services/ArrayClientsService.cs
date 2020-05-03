@@ -12,12 +12,10 @@ namespace backend.Services
         {
             this.repo = repo;
         }
-        public Client addNewClient(Client newClient)
+        public void addNewClient(Client newClient)
         {
             if (newClient.isValid())
-                return this.repo.addNewClient(newClient);
-            else
-                return newClient;
+                this.repo.addNewClient(newClient);
         }
 
         public ICollection<Client> getAllClients()
