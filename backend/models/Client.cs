@@ -2,7 +2,6 @@ using System;
 
 namespace backend.models
 {
-    [Serializable]
     public class Client
     {
         public int? id { get; set; }

@@ -27,13 +27,13 @@ public class CustomBootstrapper : DefaultNancyBootstrapper
 
     protected override void ApplicationStartup(TinyIoCContainer container, IPipelines pipelines)
     {
-        pipelines.AfterRequest.AddItemToEndOfPipeline((ctx) =>
+        pipelines.AfterRequest.AddItemToEndOfPipeline((context) =>
         {
-            ctx.Response.Headers.Add("Access-Control-Allow-Origin", "*");
-            ctx.Response.Headers.Add("Access-Control-Allow-Methods", "POST,GET,DELETE,PUT,OPTIONS");
-            ctx.Response.Headers.Add("Access-Control-Allow-Credentials", "true");
-            ctx.Response.Headers.Add("Access-Control-Allow-Headers", "Accept,Origin,Content-type");
-            ctx.Response.Headers.Add("Access-Control-Expose-Headers", "Accept,Origin,Content-type");
+            context.Response.Headers.Add("Access-Control-Allow-Origin", "*");
+            context.Response.Headers.Add("Access-Control-Allow-Methods", "POST,GET,DELETE,PUT,OPTIONS");
+            context.Response.Headers.Add("Access-Control-Allow-Credentials", "true");
+            context.Response.Headers.Add("Access-Control-Allow-Headers", "Accept,Origin,Content-type");
+            context.Response.Headers.Add("Access-Control-Expose-Headers", "Accept,Origin,Content-type");
 
         });
 
@@ -46,7 +46,7 @@ public class CustomBootstrapper : DefaultNancyBootstrapper
         pipelines.AfterRequest += (context) =>
         {
             watcher.Stop();
-            Console.WriteLine("Request: " + context.Request.Method + "API: " + context.Request.Path);
+            Console.WriteLine("Request: " + context.Request.Method + " - API: " + context.Request.Path);
             Console.WriteLine("Time Elapsed: " + watcher.ElapsedMilliseconds + "ms");
         };
     }

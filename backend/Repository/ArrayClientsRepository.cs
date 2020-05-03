@@ -1,5 +1,4 @@
 
-using System;
 using System.Collections.Generic;
 using backend.models;
 
@@ -43,21 +42,17 @@ namespace backend.Repository
             });
         }
 
-        public Client updateClient(Client oldClient)
+        public void updateClient(Client oldClient)
         {
             this.listOfClients.ForEach(client =>
             {
-                Console.WriteLine(oldClient.id + "OLD");
-                Console.WriteLine(client.id + "CL");
                 if (client.id == oldClient.id)
                 {
-                    Console.WriteLine("ENTRA");
                     client.firstName = oldClient.firstName;
                     client.lastName = oldClient.lastName;
                     client.address = oldClient.address;
                 }
             });
-            return null;
         }
     }
 }

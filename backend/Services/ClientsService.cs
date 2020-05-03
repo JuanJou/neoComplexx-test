@@ -9,6 +9,6 @@ namespace backend.Services
         Client getClientById(int id);
         Client addNewClient(Client newClient);
         void removeClient(int id);
-        Client modifyClient(Client oldClient);
+        void modifyClient(Client oldClient);
     }
 }

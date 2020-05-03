@@ -9,7 +9,7 @@ namespace backend.Repository
         ICollection<Client> getAllClients();
         void removeClient(int id);
         Client addNewClient(Client newClient);
-        Client updateClient(Client client);
+        void updateClient(Client client);
 
     }
 }

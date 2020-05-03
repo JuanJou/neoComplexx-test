@@ -1,4 +1,4 @@
-using System;
+
 using System.Collections.Generic;
 using backend.models;
 using backend.Repository;
@@ -24,13 +24,12 @@ namespace backend.Services
 
         public Client getClientById(int id)
         {
-            Console.WriteLine("ID SERVICE: " + id);
             return this.repo.getClientById(id);
         }
 
-        public Client modifyClient(Client oldClient)
+        public void modifyClient(Client oldClient)
         {
-            return this.repo.updateClient(oldClient);
+            this.repo.updateClient(oldClient);
         }
 
         public void removeClient(int id)
