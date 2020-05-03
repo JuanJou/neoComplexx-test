@@ -14,7 +14,10 @@ namespace backend.Services
         }
         public Client addNewClient(Client newClient)
         {
-            return this.repo.addNewClient(newClient);
+            if (newClient.isValid())
+                return this.repo.addNewClient(newClient);
+            else
+                return newClient;
         }
 
         public ICollection<Client> getAllClients()
@@ -29,7 +32,8 @@ namespace backend.Services
 
         public void modifyClient(Client oldClient)
         {
-            this.repo.updateClient(oldClient);
+            if (oldClient.isValid())
+                this.repo.updateClient(oldClient);
         }
 
         public void removeClient(int id)
