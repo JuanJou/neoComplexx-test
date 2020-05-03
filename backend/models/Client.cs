@@ -11,5 +11,12 @@ namespace backend.models
         {
             return this.address != null && this.firstName != null && this.lastName != null;
         }
+
+        public void updateProperties(Client otherClient)
+        {
+            this.firstName = otherClient.firstName;
+            this.lastName = otherClient.lastName;
+            this.address = otherClient.address;
+        }
     }
 }

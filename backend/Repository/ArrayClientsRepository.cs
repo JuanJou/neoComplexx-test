@@ -48,9 +48,7 @@ namespace backend.Repository
             {
                 if (client.id == oldClient.id)
                 {
-                    client.firstName = oldClient.firstName;
-                    client.lastName = oldClient.lastName;
-                    client.address = oldClient.address;
+                    client.updateProperties(oldClient);
                 }
             });
         }
