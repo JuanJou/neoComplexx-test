@@ -39,7 +39,7 @@ public class CustomBootstrapper : DefaultNancyBootstrapper
 
         pipelines.BeforeRequest += (conext) =>
         {
-            watcher.Start();
+            watcher.Restart();
             return null;
         };
 
