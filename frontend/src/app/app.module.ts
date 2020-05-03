@@ -1,5 +1,4 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { ClientsListResolver } from './services/clients-list.resolver'; 
 import { environment } from '../environments/environment'; 
 import { BaseUrlInterceptor } from './interceptors/baseUrlInterceptor'; 
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http'; 

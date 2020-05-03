@@ -30,7 +30,7 @@ export class ClientsFormComponent implements OnInit {
 
   async onSubmit() {
     let client: Client = new Client(this.clientForm.value);
-    if (client.id) await this.clientService.updateOldClient(client);
+    if (client.id !== null) await this.clientService.updateOldClient(client);
     else await this.clientService.saveNewClient(client);
     this.router.navigate(["clientsList"]);
   }
